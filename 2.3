@@ -1,0 +1,67 @@
+//stack operations
+#include <stdio.h>
+#define MAX 5
+void insert();
+void delete();
+void display();
+int array[MAX];
+int last = - 1;
+int front = - 1;
+main()
+{
+    int ch;
+    while(1)
+    {
+        printf("1.Insert value\n");
+        printf("2.Delete value\n");
+        printf("3.Display stack values\n");
+        printf("4.Quit \n");
+        printf("Enter your choice : ");
+        scanf("%d", &ch);
+        switch (ch)
+        {
+            case 1:
+            insert();
+            break;
+            case 2:
+            delete();
+            break;
+            case 3:
+            display();
+            break;
+            default:
+            printf("invalid choice \n");
+        }
+    }
+}
+
+void insert()
+{
+    int value;
+    if (last == MAX - 1)
+    printf("no space left\n");
+    else
+    {
+        if (front == - 1)
+        front = 0;
+        printf("Insert the element  : ");
+        scanf("%d", &value);
+        last+=1;
+        array[last] = value;
+    }
+}
+ 
+void delete()
+{
+        printf("Element deleted  is : %d\n",array[front]);
+        front+=1;
+    }
+ 
+void display()
+{
+    int i;
+        printf("Elements are : \n");
+        for (i = front; i <= last; i++)
+        printf("%d ",array[i]);
+        printf("\n");
+    }
